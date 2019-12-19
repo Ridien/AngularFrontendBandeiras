@@ -1,0 +1,61 @@
+
+        <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand" href="#">
+                  <img src="https://www.incluirtecnologia.com.br/_nuxt/img/a86ae87.png" alt="">
+                </a>
+                <form action="">
+                        <button class="btn btn-success" (click)="backSearch(event)">Voltar    
+                        </button>
+                </form>
+        </nav>
+
+<table class="table">
+        <tbody>
+            <div class="row">
+                    <div class="col justify-content-between"><img src = "{{country.flag}}"></div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    Nome:{{country.name}}
+                </div>
+            </div>
+
+            
+            <div class="row">
+                    <div class="col">
+                        Capital:{{country.capital}}
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col">
+                        Região:{{country.region}}
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col">
+                         Subrregião:{{country.subregion}}
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    População:{{country.population}}
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col">Idiomas:</div>
+                    <div class="col" *ngFor="let language of languagelist">{{language}}</div>
+            </div>
+
+            <div class="row">
+                <div Class="col">Borders:</div>
+            </div>
+            <div class="row" >
+                <div class="col" *ngFor='let border of borderlist'>
+                    <img src = "{{border.flag}}" (click)="changeCountry($event)">
+                </div>
+            </div>
+        </tbody>    
+    </table>

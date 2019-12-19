@@ -1,0 +1,7 @@
+<table class="table">
+    <tbody>
+        <tr *ngFor="let country of selected">
+            <td><img src = "{{ country.flag }}" (click) = "onClick($event)"></td>
+        </tr>
+    </tbody>    
+</table>

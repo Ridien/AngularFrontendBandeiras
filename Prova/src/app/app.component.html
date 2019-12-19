@@ -1,0 +1,46 @@
+<div class="container">
+  <div *ngIf='tela == 1' class="row">
+    <nav class="navbar navbar-expand-lg navbar-light">
+       <img src="https://www.incluirtecnologia.com.br/_nuxt/img/a86ae87.png" alt="">
+    </nav>
+   
+  </div>
+
+  <div *ngIf='tela == 1'>
+      <div class="row">
+        <div class = "col">
+          <select (change)="submitregiao($event)" [(ngModel)]="selectedRegion">
+            <option *ngFor="let region of regions">{{region}}</option>
+          </select >
+        </div>
+        <div class = "col">
+          <select (change)="submitpais($event)" [(ngModel)]="selectedCountry">
+            <option></option>
+            <option *ngFor="let country of Countries">{{country.name}}</option>
+          </select >
+        </div>
+        <div class = "col">
+          <button class="btn btn-success" (click)="mostrar = 1">
+              Pesquisar
+         </button>
+        </div>
+      
+        </div>
+        <div *ngIf="mostrar == 1">
+            <div class="row" *ngIf="menu == 'ListaReg'">
+               <app-lista [selectReg] = selectedRegion (clickEvent)="showDetails($event)"> 
+               </app-lista>
+          </div>
+        
+          <div class="row" *ngIf="menu == 'Pais'">
+              <app-pais [selectCoun] = selectedCountry (messageEvent)="receiveMessage($event)" (clickEvent)="showDetails($event)">        
+              </app-pais>
+          </div>
+        </div>
+       
+  </div>
+  <div *ngIf='tela == 2'>
+    <app-countrydetails [counDetails] = countrydetails (backS)="backSearch($event)"></app-countrydetails>
+  </div>
+</div>
+

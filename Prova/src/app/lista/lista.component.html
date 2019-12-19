@@ -1,0 +1,8 @@
+    
+    <div class="container-fluid"> 
+         <div class="row">
+            <div class= "col-sm-4" *ngFor="let country of countries">
+                <img src = "{{ country.flag }}" (click) = "onClick($event)" />
+            </div>   
+        </div>
+    </div>
